@@ -1,0 +1,6 @@
+<?php
+$s_plugin_MultiEmail_plugin_title = 'Multiple Email';
+$s_plugin_MultiEmail_manage = 'Manage';
+$s_plugin_MultiEmail_add_email = 'Add Email';
+$s_plugin_MultiEmail_save = 'Save';
+$s_plugin_MultiEmail_plugin_format_title = 'Multiple Email';
