@@ -4,7 +4,7 @@ This plugin allows user to report issues from multiple email addresses.
 
 IMPORTANT:
 
-The plugin may not work without the latest version of Mantis EmailReporting plugin.
+The plugin may not work without the latest version of Mantis EmailReporting plugin. Also make sure that you have enabled *mail_save_from* coniguration (Write the sender of the email into the issue report/note).
 
 How to Use the plugin
 
