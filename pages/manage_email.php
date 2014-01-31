@@ -60,31 +60,24 @@ if( !isset( $f_search ) ) {
 $t_plugin_table =  plugin_table('emails');
 $t_user_table = db_get_table( 'mantis_user_table' );
 
-$query = "SELECT e.email as extra_email, u.username, u.realname, u.email FROM $t_plugin_table AS e LEFT JOIN $t_user_table AS u ON e.user_id=u.id";
+$query = "SELECT e.user_id, e.email as extra_email, u.username, u.realname, u.email FROM $t_plugin_table AS e LEFT JOIN $t_user_table AS u ON e.user_id=u.id ORDER BY u.realname";
 
-/*if( $t_where_clausole != "" ){
-    $query = $query . " WHERE $t_where_clausole";
-}
-
-$query = $query . " ORDER BY UPPER(question) ASC";*/
 $result = db_query( $query );
 $user_count = db_num_rows( $result );
+$records = array();
+for ($i=0;$i<$user_count;$i++) 
+{
+	$row = db_fetch_array($result);
+	extract( $row);
+	$records[$user_id]['realname'] = $realname;
+	$records[$user_id]['username'] = $username;
+	$records[$user_id]['email'] = $email;
+	$records[$user_id]['emails'][] = $extra_email;
+
+}  # end for loop
+
 ?>
 <p>
-<table width="100%" cellspacing="0" border="0" cellpadding="0">
-<tr>
-<td class="small-caption">
-</td>
-<td class="right">
-<?php
-/*if ( access_has_project_level( DEVELOPER ) ) {
-    global $g_faq_add_page;
-    print_bracket_link( $g_faq_add_page, plugin_lang_get( 'add_faq') );
-}*/
-?>
-</td>
-</tr>
-</table>
 <table  class="width100" cellspacing="0" border="0">
 <tr>
 <td class="category">Real Name</td>
@@ -93,16 +86,17 @@ $user_count = db_num_rows( $result );
 <td class="category">Additional Email</td>
 </tr>
 <?php
-for ($i=0;$i<$user_count;$i++) 
+foreach ($records as $record) 
 {
-	$row = db_fetch_array($result);
-	extract( $row);
-    //print_r($row);
     print "<tr ".helper_alternate_class()." >";
-    print "<td>{$realname}</td>";
-    print "<td>{$username}</td>";
-    print "<td>{$email}</td>";
-    print "<td>{$extra_email}</td>";
+    print "<td>{$record['realname']}</td>";
+    print "<td>{$record['username']}</td>";
+    print "<td>{$record['email']}</td>";
+    print "<td>";
+	foreach($record['emails'] as $email) {
+		print $email."<br>";
+	}
+    print "</td>";
     print "</tr>";
 
 }  # end for loop
