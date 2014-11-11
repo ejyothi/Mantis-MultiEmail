@@ -60,7 +60,7 @@ if( !isset( $f_search ) ) {
 $t_plugin_table =  plugin_table('emails');
 $t_user_table = db_get_table( 'mantis_user_table' );
 
-$query = "SELECT e.user_id, e.email as extra_email, u.username, u.realname, u.email FROM $t_plugin_table AS e LEFT JOIN $t_user_table AS u ON e.user_id=u.id ORDER BY u.realname";
+$query = "SELECT e.id, e.user_id, e.email as extra_email, u.username, u.realname, u.email FROM $t_plugin_table AS e LEFT JOIN $t_user_table AS u ON e.user_id=u.id ORDER BY u.realname";
 
 $result = db_query( $query );
 $user_count = db_num_rows( $result );
@@ -69,10 +69,11 @@ for ($i=0;$i<$user_count;$i++)
 {
 	$row = db_fetch_array($result);
 	extract( $row);
+	//$records[$user_id]['id'] = $id;
 	$records[$user_id]['realname'] = $realname;
 	$records[$user_id]['username'] = $username;
 	$records[$user_id]['email'] = $email;
-	$records[$user_id]['emails'][] = $extra_email;
+	$records[$user_id]['emails'][$id] = $extra_email;
 
 }  # end for loop
 
@@ -93,8 +94,10 @@ foreach ($records as $record)
     print "<td>{$record['username']}</td>";
     print "<td>{$record['email']}</td>";
     print "<td>";
-	foreach($record['emails'] as $email) {
-		print $email."<br>";
+	foreach($record['emails'] as $id => $email) {
+		print $email."&nbsp;";
+		print_bracket_link( plugin_page( 'del_email.php' ) . "&id={$id}", 'Delete' );
+		print "<br>";
 	}
     print "</td>";
     print "</tr>";
