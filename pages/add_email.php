@@ -9,9 +9,9 @@ access_ensure_global_level( MANAGER );
 <div align="center">
 <?php
 
-	# Add faq
 $f_user_id	  = gpc_get_int( 'f_user_id' );
 $f_email	  = gpc_get_string( 'f_email' );
+$f_email = strtolower($f_email);
 
 if($f_user_id) {
     //$f_project_id = gpc_get_string( 'project_id' );
