@@ -4,9 +4,9 @@ class MultiEmailPlugin extends MantisPlugin {
     function register() {
         $this->name        = 'MultiEmail';
         $this->description = 'Allow users to report issues from multiple emails';
-        $this->version     = '0.2';
+        $this->version     = '0.3';
         $this->requires    = array(
-				'MantisCore' => '>=1.2.0',
+				'MantisCore' => '1.2, <1.3.99',
 				'EmailReporting' => '0.9',
 			);
         $this->author      = 'Manilal K M';
@@ -19,9 +19,10 @@ class MultiEmailPlugin extends MantisPlugin {
      * Default plugin configuration.
      */
     function config() {
-        /*return array(
-                'merge_issue_threshold' => DEVELOPER,
-                );*/
+        return array(
+                'add_email_threshold' => ADMINISTRATOR,
+                'delete_email_threshold' => ADMINISTRATOR
+                );
     }
 
     function init() {
