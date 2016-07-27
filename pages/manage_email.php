@@ -110,7 +110,7 @@ foreach ($records as $record)
 <table class="width100" cellspacing="0" border="0">
 <tr class="row-category2">
 <td class="small-caption" colspan="3">
-<?php PRINT plugin_lang_get( 'add_email'); ?>
+<?php print plugin_lang_get( 'add_email'); ?>
 </td>
 <td class="small-caption"></td>
 </tr>
@@ -118,7 +118,7 @@ foreach ($records as $record)
 <td>
 <select name="f_user_id">
 <option value="0">Select User</option>
-<?php print_user_option_list() ?>
+<?php print_user_option_list(0) ?>
 </select>
 </td>
 <td class="small-caption">
