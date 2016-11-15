@@ -4,15 +4,16 @@ class MultiEmailPlugin extends MantisPlugin {
     function register() {
         $this->name        = 'MultiEmail';
         $this->description = 'Allow users to report issues from multiple emails';
-        $this->version     = '0.3';
+        $this->version     = '0.4';
         $this->requires    = array(
-				'MantisCore' => '1.2, <1.3.99',
+				'MantisCore' => '2.0.0',
 				'EmailReporting' => '0.9',
 			);
         $this->author      = 'Manilal K M';
         $this->contact     = 'manilal@ejyothi.com';
-        $this->url         = 'http://www.ejyothi.com';
-        $this->page        = 'config';
+        $this->url         = 'https://github.com/ejyothi';
+		//TODO need to implement the access thresholds in the config page
+        //$this->page        = 'config';
     }
 
     /**
