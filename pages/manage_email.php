@@ -50,7 +50,7 @@ foreach ($t_records as $t_record)
     print "<td>";
 	foreach($t_record['emails'] as $id => $email) {
 		print $email."&nbsp;";
-		print_link( plugin_page( 'del_email.php' ) . "&id={$id}", 'Delete' );
+		print_link( plugin_page( 'del_email.php' ) . "&id={$id}", '<i class="fa fa-trash-o"></i>' );
 		print "<br>";
 	}
     print "</td>";
