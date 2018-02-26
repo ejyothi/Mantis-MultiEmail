@@ -16,9 +16,13 @@ if( gpc_isset( 'submit' ) ) {
 	$query = "DELETE FROM $t_plugin_table WHERE id ='$f_id'";
 	$result = db_query( $query );
 	if ( $result ) {
-		PRINT "<h2>Deleted email address</h2>";
+		print "<h2>Deleted email address</h2>";
+		print "<br>";
+		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 	} else {
 		print_sql_error( $query );
+		print "<br>";
+		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 	}
 } else {
 	if($f_id) {
@@ -33,19 +37,20 @@ if( gpc_isset( 'submit' ) ) {
 			print "<h4>Are you sure you want to remove {$t_row['email']} from the account {$t_row['username']}</h4>";
 			print '<input type="hidden" name="id" value="'.$f_id.'">';
 			print '<input type="submit" name="submit" value="Confirm Deletion">';
+		    print "<br>";
+		    print_link( plugin_page( 'manage_email.php' ), plugin_lang_get( 'cancel' ) );
 		} else {
 			print_sql_error( $query );
+		print "<br>";
+		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 		}
 	} else {
 		print "<h3>User not selected</h3>";
+		print "<br>";
+		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 	}
 
 }
-?>
-
-<?php
-		print "<br>";
-		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 ?>
 </div>
 </form>

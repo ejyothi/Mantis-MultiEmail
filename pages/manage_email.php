@@ -28,7 +28,7 @@ Add Alternate Email for:&nbsp;
     <option value="0">Select User</option>
     <?php print_user_option_list(0) ?>
 </select>
-<input type="text" size="25" maxlength="255" name="f_email" placeholder="Enter Email Address (Required)" required class="input-sm">
+<input type="email" size="25" maxlength="255" name="f_email" placeholder="Enter Email Address (Required)" required class="input-sm">
 <input type="submit" name="f_save" value="<?php echo plugin_lang_get( 'save') ?>" class="btn btn-primary btn-white btn-sm btn-round">
 </form>
 
