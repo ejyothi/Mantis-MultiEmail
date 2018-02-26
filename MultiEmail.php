@@ -4,7 +4,7 @@ class MultiEmailPlugin extends MantisPlugin {
     function register() {
         $this->name        = 'MultiEmail';
         $this->description = 'Allow users to report issues from multiple emails';
-        $this->version     = '0.4';
+        $this->version     = '0.5';
         $this->requires    = array(
 				'MantisCore' => '2.0.0',
 				'EmailReporting' => '0.9',

@@ -7,8 +7,9 @@ IMPORTANT:
 The plugin may not work without the latest version of Mantis EmailReporting plugin. Also make sure that you have enabled *mail_save_from* configuration (Write the sender of the email into the issue report/note).
 
 ## Prerequisites
+* MultiEmail v0.5 and later works with MantisBT v2.0 and later
+* MultiEmail v0.4 works only from MantisBT v2.0 to v2.10.x
 * MultiEmail v0.3 and earlier works only with MantisBT v1.2 and v1.3
-* MultiEmail v0.4 and later works only with MantisBT v2.0 and later
 
 ## How to Use the plugin
 
