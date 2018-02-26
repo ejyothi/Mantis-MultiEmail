@@ -22,8 +22,17 @@ while($t_row = db_fetch_array($t_result))
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
+
 <form method="post" action="<?php echo plugin_page( 'add_email.php' ); ?>">
-Add Alternate Email for:&nbsp;
+<div class="widget-box widget-color-blue2">
+        <div class="widget-header widget-header-small">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-envelope"></i>
+                Manage Multiple Email Address
+            </h4>
+        </div>
+<div class="space-10"></div>
+Add additional email address for:&nbsp;
 <select name="f_user_id" class="input-sm">
     <option value="0">Select User</option>
     <?php print_user_option_list(0) ?>
@@ -31,7 +40,7 @@ Add Alternate Email for:&nbsp;
 <input type="email" size="25" maxlength="255" name="f_email" placeholder="Enter Email Address (Required)" required class="input-sm">
 <input type="submit" name="f_save" value="<?php echo plugin_lang_get( 'save') ?>" class="btn btn-primary btn-white btn-sm btn-round">
 </form>
-
+<div class="widget-body">
 <div class="table-responsive">
 <table class="table table-bordered table-condensed table-hover table-striped">
 <tr class="row-category">
@@ -61,7 +70,10 @@ foreach ($t_records as $t_record)
 </table>
 <br>
 </div> <!-- table-responsive -->
+</div> <!-- widget-body -->
+</div> <!-- widget-box -->
 </div> <!-- col-md -->
+
 <?php
 //html_page_bottom1();
 layout_page_end();
