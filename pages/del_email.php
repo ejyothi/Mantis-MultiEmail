@@ -45,7 +45,7 @@ if( gpc_isset( 'submit' ) ) {
 
 <?php
 		print "<br>";
-		print_bracket_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
+		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 ?>
 </div>
 </form>

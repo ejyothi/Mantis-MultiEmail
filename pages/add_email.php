@@ -42,7 +42,7 @@ if($f_user_id) {
 ?>
 <?php
 
-		print_bracket_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
+		print_link( plugin_page( 'manage_email.php' ), lang_get( 'proceed' ) );
 ?>
 </div>
 <?php
